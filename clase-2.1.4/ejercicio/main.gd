@@ -7,16 +7,20 @@ var movimiento: Label
 
 func _ready() -> void:
 	var columna := VBoxContainer.new()
-	columna.position = Vector2(40, 32)
-	columna.size = Vector2(1020, 630)
-	columna.add_theme_constant_override("separation", 20)
+	columna.position = Vector2(30, 24)
+	columna.size = Vector2(560, 650)
+	columna.add_theme_constant_override("separation", 16)
 	add_child(columna)
-	_fila(columna, "GRUPO 2  /  CLASES DE INPUTEVENT", 30)
-	_fila(columna, "Pulsa una tecla, haz clic, gira la rueda y mueve el ratón.", 21)
-	estado = _fila(columna, "Último evento: esperando entrada", 22)
-	teclado = _fila(columna, "TECLADO\nSin eventos", 21)
-	botones = _fila(columna, "BOTÓN / RUEDA\nSin eventos", 21)
-	movimiento = _fila(columna, "MOVIMIENTO\nSin eventos", 21)
+	_fila(columna, "GRUPO 2  /  CLASES DE INPUTEVENT", 26)
+	_fila(columna, "Pulsa una tecla, haz clic, gira la rueda y mueve el ratón.", 18)
+	estado = _fila(columna, "Último evento: esperando entrada", 19)
+	teclado = _fila(columna, "TECLADO\nSin eventos", 18)
+	botones = _fila(columna, "BOTÓN / RUEDA\nSin eventos", 18)
+	movimiento = _fila(columna, "MOVIMIENTO\nSin eventos", 18)
+	# Escenario 2D: el muñequito reacciona a las mismas tres clases de InputEvent.
+	var tablero := preload("res://tablero.gd").new()
+	tablero.position = Vector2(640, 70)
+	add_child(tablero)
 
 func _fila(padre: Node, texto: String, tamano: int) -> Label:
 	var etiqueta := Label.new()
